@@ -41,23 +41,14 @@ const Login = () => {
   return (
     <div className="Login">
       <h3>Login</h3>
-      <Button
-        className="custom-button"
-        size="sm"
-        onClick={connectMetaMask}
-      >
+      <Button className="custom-button" size="sm" onClick={connectMetaMask}>
         Connect to MetaMask
       </Button>
       <p>or</p>
-      
-      <Button
-        className="custom-button"
-        size="sm"
-        onClick={enterAsViewer}
-      >
+
+      <Button className="custom-button" size="sm" onClick={enterAsViewer}>
         Enter as Viewer
       </Button>
-  
     </div>
   );
 };

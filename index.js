@@ -114,7 +114,7 @@ const syncWithRootNode = () => {
   
 const walletTest1 = new Wallet();
 const walletTest2 = new Wallet();
-
+////create some transaction for the application
 const walletTransactionGenerator = ({wallet, recipient, amount}) =>{
   const transaction = wallet.createTransaction({
     recipient, amount, chain: blockchain.chain
@@ -124,15 +124,15 @@ const walletTransactionGenerator = ({wallet, recipient, amount}) =>{
 };
 
 const walletOperation = () => walletTransactionGenerator({
-  wallet, recipient: walletTest1.publicKey, amount:10
+  wallet, recipient: walletTest1.publicKey, amount:100
 });
 
 const walletTest1Operation = () => walletTransactionGenerator({
-  wallet:walletTest1, recipient: walletTest2.publicKey, amount:20
+  wallet:walletTest1, recipient: walletTest2.publicKey, amount:200
 });
 
 const walletTest2Operation = () => walletTransactionGenerator({
-  wallet: walletTest2, recipient: wallet.publicKey, amount:30
+  wallet: walletTest2, recipient: wallet.publicKey, amount:12
 });
 
 

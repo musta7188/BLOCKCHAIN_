@@ -6,9 +6,8 @@ import history from "../history";
 import { Button } from "react-bootstrap";
 const App = () => {
   const [walletInfo, setWalletInfo] = useState({});
-  const storedAddress = localStorage.getItem('walletAddress');
-  const storedBalance = localStorage.getItem('walletBalance');
-
+  const storedAddress = localStorage.getItem("walletAddress");
+  const storedBalance = localStorage.getItem("walletBalance");
 
   useEffect(() => {
     const fetchWalletInfo = async () => {
@@ -38,13 +37,13 @@ const App = () => {
   };
 
   const disconnectMetaMask = async () => {
-    localStorage.removeItem('walletAddress');
-    localStorage.removeItem('walletBalance');
+    localStorage.removeItem("walletAddress");
+    localStorage.removeItem("walletBalance");
     setWalletInfo({
-      address: '',
-      balance: '',
+      address: "",
+      balance: "",
     });
-    history.push('/login');
+    history.push("/login");
   };
 
   return (
@@ -53,28 +52,30 @@ const App = () => {
       <img className="logo" src={logo} alt="Logo" />
       <br />
       <div className="menu-bar">
-        <Link className="nav-link" to="/blocks">Blocks</Link>
-        <Link className="nav-link" to="/make-transaction">Make a Transaction</Link>
-        <Link className="nav-link" to="/transaction-pool">Transaction Pool</Link>
+        <Link className="nav-link" to="/blocks">
+          Blocks
+        </Link>
+        <Link className="nav-link" to="/make-transaction">
+          Make a Transaction
+        </Link>
+        <Link className="nav-link" to="/transaction-pool">
+          Transaction Pool
+        </Link>
+        <Button className="custom-button" size="sm" onClick={connectMetaMask}>
+          Connect to MetaMask
+        </Button>
+        <br />
         <Button
-        className="custom-button"
-        size="sm"
-        onClick={connectMetaMask}
-      >
-        Connect to MetaMask
-      </Button>
-      <br/>
-      <Button
-        className="custom-button"
-        size="sm"
-        onClick={disconnectMetaMask}
-      >
-        Disconnect from MetaMask
-      </Button>
+          className="custom-button"
+          size="sm"
+          onClick={disconnectMetaMask}
+        >
+          Disconnect from MetaMask
+        </Button>
       </div>
       <div className="InfoWallet">
-          <div>address: {storedAddress || address} </div>
-          <div> balance: { (storedBalance || balance) || 0 } </div>
+        <div>address: {storedAddress || address} </div>
+        <div> balance: {storedBalance || balance || 0} </div>
       </div>
     </div>
   );
