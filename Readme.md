@@ -16,10 +16,11 @@ This project is a simple blockchain explorer built using React for the frontend 
 
 ## Features
 
-- View blocks in the blockchain
-- Make transactions
-- View transaction pool
-- Mine transactions
+- View the entire blockchain.
+- Create transactions and view them in a transaction pool.
+- Mine transactions from the transaction pool.
+- Wallet functionalities including balance check.
+- Connect to MetaMask for Ethereum transactions.
 
 ## Installation
 
@@ -31,27 +32,64 @@ cd BLOCKCHAIN
 
 Install the required packages:
 
+Prerequisites
+Node.js and npm
+Redis
+Setting Up Redis
+Before running the application, you'll need to have Redis installed and running on your machine.
+
+For macOS:
+
+brew install redis
+brew services start redis
+
+For Ubuntu:
+
+sudo apt update
+sudo apt install redis-server
+
+To confirm Redis is running:
+
+redis-cli ping
+
+If it returns PONG, then Redis is running successfully.
+
+Installation
+Clone the repository:
+
+
+git clone https://github.com/your-repo/blockchain-explorer.git
+Navigate to the project directory:
+
+cd blockchain-explorer
+Install backend dependencies:
+
+
 npm install
-Usage
-To start the application:
+Navigate to the client directory:
+
+
+cd client
+Install frontend dependencies:
+
+
+npm install
+Running the Application
+Backend
+Navigate to the project root directory and run:
 
 
 npm start
-Redis Setup
-To install Redis on your local machine, follow these instructions:
-
-For Mac:
-
-brew install redis
-For Windows:
-Download the installer from Redis official site and follow the installation steps.
-
-To Start Redis:
-
-redis-server
-Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Frontend
+Navigate to the client directory and run:
 
 
+npm start
+Open your browser and go to http://localhost:3000.
 
+Testing
+To run tests, navigate to the project root directory and run:
+
+
+npm test
 
