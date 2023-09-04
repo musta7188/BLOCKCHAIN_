@@ -62571,33 +62571,35 @@ var initMetaMask = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           if (!(typeof window.ethereum === 'undefined')) {
-            _context.next = 2;
+            _context.next = 3;
             break;
           }
+          console.log('Please install MetaMask to use this dApp');
           return _context.abrupt("return", null);
-        case 2:
-          _context.prev = 2;
-          _context.next = 5;
+        case 3:
+          _context.prev = 3;
+          _context.next = 6;
           return window.ethereum.request({
             method: 'eth_requestAccounts'
           });
-        case 5:
-          _context.next = 7;
+        case 6:
+          _context.next = 8;
           return window.ethereum.request({
             method: 'eth_accounts'
           });
-        case 7:
+        case 8:
           accounts = _context.sent;
           return _context.abrupt("return", accounts);
-        case 11:
-          _context.prev = 11;
-          _context.t0 = _context["catch"](2);
+        case 12:
+          _context.prev = 12;
+          _context.t0 = _context["catch"](3);
+          console.error('User denied account access');
           return _context.abrupt("return", null);
-        case 14:
+        case 16:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[2, 11]]);
+    }, _callee, null, [[3, 12]]);
   }));
   return function initMetaMask() {
     return _ref.apply(this, arguments);
@@ -62622,8 +62624,9 @@ var getBalance = /*#__PURE__*/function () {
         case 8:
           _context2.prev = 8;
           _context2.t0 = _context2["catch"](0);
+          console.error('Error getting balance:', _context2.t0);
           return _context2.abrupt("return", null);
-        case 11:
+        case 12:
         case "end":
           return _context2.stop();
       }
@@ -77804,8 +77807,8 @@ var App = function App() {
     _useState2 = _slicedToArray(_useState, 2),
     walletInfo = _useState2[0],
     setWalletInfo = _useState2[1];
-  var storedAddress = localStorage.getItem('walletAddress');
-  var storedBalance = localStorage.getItem('walletBalance');
+  var storedAddress = localStorage.getItem("walletAddress");
+  var storedBalance = localStorage.getItem("walletBalance");
   (0, _react.useEffect)(function () {
     var fetchWalletInfo = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -77874,13 +77877,13 @@ var App = function App() {
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) switch (_context3.prev = _context3.next) {
           case 0:
-            localStorage.removeItem('walletAddress');
-            localStorage.removeItem('walletBalance');
+            localStorage.removeItem("walletAddress");
+            localStorage.removeItem("walletBalance");
             setWalletInfo({
-              address: '',
-              balance: ''
+              address: "",
+              balance: ""
             });
-            _history.default.push('/login');
+            _history.default.push("/login");
           case 4:
           case "end":
             return _context3.stop();
@@ -78431,7 +78434,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60192" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59316" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
